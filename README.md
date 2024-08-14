@@ -13,8 +13,8 @@
 * Console
 : 코드를 활용한 디버깅을 표시하는 공간
 
-단축키
-Hierarchy_(W) : 오브젝트의 Position 값을 변경
-Hierarchy_(E) : 오브젝트의 Rotation 값을 변경
-Hierarchy_(R) : 오브젝트의 Scale(크기) 값 변경
-Hierarchy_(T) : 오브젝트의 위치, 크기 변경
+단축키   
+Hierarchy_(W) : 오브젝트의 Position 값을 변경   
+Hierarchy_(E) : 오브젝트의 Rotation 값을 변경   
+Hierarchy_(R) : 오브젝트의 Scale(크기) 값 변경   
+Hierarchy_(T) : 오브젝트의 위치, 크기 변경   
