@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class Script_DEV_familly : MonoBehaviour
 {
-  
-
    
 }
