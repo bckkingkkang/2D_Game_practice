@@ -32,9 +32,32 @@ Hierarchy_(T) : 오브젝트의 위치, 크기 변경
     * internal : 같은 어셈블리에서만 public으로 접근 가능
     * protected : 상속 관계에서만 접근 가능
 
+### Unity의 변수
+**1. GameObject**
+```C#
+GameObject a;
+```
+게임을 구성하는 모든 요소
+컴포넌트로 구성이 된다.
+이 오브젝트가 가지고 있는 컴포넌트를 또 다른 방법으로 관리 할 수 있다.
+
+* **SetActive** : 게임 오브젝트의 활성화를 변경
+    * true : 활성화
+    * false : 비활성화
+* **GetComponent<>()** : 해당 게임 오브젝트가 가지고 있는 Component를 반환
 
 
-
+**2. Transform**
+UI 등을 제외한 모든 오브젝트에 생성이 된다.
+Position(위치), Rotation(회전), Scale(크기)로 구현된 컴포넌트
+```C#
+Transform b;
+```
+   
+**3. Vector**
+> Vector : 좌표계   
+> Vector2 : 2D 좌표계 x, y   
+> Vector3 : 3D 좌표계 x, y, z   
 
 
 
