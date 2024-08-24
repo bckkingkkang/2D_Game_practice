@@ -31,34 +31,90 @@ Hierarchy_(T) : 오브젝트의 위치, 크기 변경
     * public : 모든 곳에서 해당 변수나 메소드에 접근이 가능
     * internal : 같은 어셈블리에서만 public으로 접근 가능
     * protected : 상속 관계에서만 접근 가능
-
+----------------------------------------------------------------------
 ### Unity의 변수
-**1. GameObject**
+#### Unity의 변수 1. Game Object
+> 'GameObject'는 Unity에서 게임을 구성하는 기본적인 요소로, 게임 내 모든 객체를 나타낸다.    
+>> 게임에 등장하는 캐릭터, 배경, 아이템 등 모든 물체는 'GameObject'로 표현된다.    
+>> 그러나 'GameObject' 자체는 단순히 빈 껍데기 역할만 하며, 이 오브젝트에 의미를 부여하기 위해서는 다양한 컴포넌트를 추가해야 한다.    
+>> 컴포넌트는 'GameObject'에 기능을 더해주는 요소로 'Transform', 'Collider', 'Rigidbody'와 같은 물리적 시각적 속성을 추가할 수 있다. 이러한 컴포넌트를 통해 게임 오브젝트는 특정한 동작이나 외형을 가지게 된다.   
+
+##### GameObject의 주요 기능
+**1. SetActive(bool state)**   
+GameObject의 활성화 상태를 변경한다. 'GameObject'는 활성화 상태일 때만 게임 내에서 동작하며, 비활성화 상태일 때는 모든 컴포넌트가 동작을 멈춘다.   
+> true : 오브젝트를 활성화한다. 즉, 게임에서 보이고 동작한다.   
+> false : 오브젝트를 비활성화한다. 즉, 게임에서 보이지 않으며 동작하지 않는다.
+
+`예를 들어 어떤 NPC가 특정 조건에서만 등장해야 하는 경우 NPC의 'GameObject'를 비활성화 상태로 두었다가 조건이 충족되면 활성화할 수 있다.`     
+
 ```C#
 GameObject a;
+a.SetActive(true);
+a.setActive(false);
 ```
-게임을 구성하는 모든 요소
-컴포넌트로 구성이 된다.
-이 오브젝트가 가지고 있는 컴포넌트를 또 다른 방법으로 관리 할 수 있다.
 
-* **SetActive** : 게임 오브젝트의 활성화를 변경
-    * true : 활성화
-    * false : 비활성화
-* **GetComponent<>()** : 해당 게임 오브젝트가 가지고 있는 Component를 반환
+**2. GetComponent<T>()**    
+이 함수는 해당 'GameObject'가 가지고 있는 특정 컴포넌트를 반환한다. 'T'는 찾고자 하는 컴포넌트의 타입을 지정한다.
+예를 들어 'SpriteRenderer' 컴포넌트를 얻고 싶다면 'GetComponent<SpriteRenderer>()'를 사용한다. 이 방법을 통해 오브젝트에 부착된 컴포넌트에 접근하여 다양한 동작을 제어할 수 있다.    
 
-
-**2. Transform**
-UI 등을 제외한 모든 오브젝트에 생성이 된다.
-Position(위치), Rotation(회전), Scale(크기)로 구현된 컴포넌트
 ```C#
-Transform b;
-```
-   
-**3. Vector**
-> Vector : 좌표계   
-> Vector2 : 2D 좌표계 x, y   
-> Vector3 : 3D 좌표계 x, y, z   
+public class FirstScript : MonoBehaviour
 
+{
+    public GameObject a;
+
+    private void Start()
+    {
+        a.GetComponent<SpriteRenderer>().color = Color.yellow;
+    }
+}
+```
+
+#### Unity의 변수 2. Transform
+'Transform' 컴포넌트는 Unity에서 모든 게임 오브젝트에 기본적으로 포함되는 필수 컴포넌트이다. 
+UI 요소를 제외한 모든 게임 오브젝트는 'Transform'을 가지고 있으며, 이 컴포넌트를 통해 오브젝트의 위치(Position), 회전(Rotation), 크기(Scale)를 조정할 수 있다.
+Transform 변수를 선언하여 오브젝트의 위치, 회전, 크기를 쉽게 관리할 수 있다.
+Vector3 변수를 사용하여 'Transform'의 위치, 회전, 크기를 정의한 후 Start() 메서드에서 적용한다.
+
+```C#
+public class FirstScript : MonoBehaviour
+{
+    public Transform a;
+
+    public Vector3 a_position;
+    public Vector3 a_rotation;
+    public Vector3 a_scale;
+
+    private void Start()
+    {
+        a.position = a_position;
+        a.eulerAngles = a_rotation;
+        a.localScale = a_scale;
+    }
+```
+
+> * a.position : 오브젝트의 현재 위치
+> * a.eulerAngles : 오브젝트의 회전 각도
+> * a.localScale : 오브젝트의 크기
+
+`이렇게 되면 Trnasform 컴포넌트의 위치, 회전, 크기가 a_position, a_rotation, a_scale 에 지정된 값으로 설정된다. 이와 같이 Transform을 사용하여 게임 오브젝트의 움직임이나 크기 변화를 손쉽게 제어할 수 있다.`
+
+또한 Transform은 게임 오브젝트의 계층 구조를 관리하는 데에도 중요한 역할을 한다.
+부모-자식 관계를 설정하면 부모 오브젝트의 Transform 변화가 자식 오브젝트에도 영향을 미치게 된다.
+
+#### Unity의 변수 3. Vector
+> Vector는 Unity에서 좌표를 표현하는 데 사용되는 중요한 개념으로 2D와 3D 공간에서 오브젝트의 위치, 방향, 크기 등을 정의할 수 있는 다양한 벡터 타입이 있다.
+
+* Vector2   
+2D 좌표계를 나타내며, x축과 y축을 포함한다. 주로 2D 게임에서 사용되며, 평면 상의 위치를 표현할 때 유용하다.
+Vector2 position2D = new Vector2(3.0f, 5.0f);
+여기서 postion2D 는 x=3.0, y=5.0의 좌표를 가지는 2D 벡터이다.
+
+* Vector3   
+3D 좌표계를 나타내며 x, y, z축을 포함한다. 3D 게임에서 주로 사용되며, 공간상의 위치뿐만 아니라 오브젝트의 회전, 크기를 정의할 때도 사용된다.
+Vector3 position3D = new Vector3(2.0f, 4.0f, 6.0f);
+postion3D 는  x=2.0, y=4.0, z=6.0의 좌표를 가지는 3D 벡터를 정의한다.
+Vector3는 게임 오브젝트의 위치뿐만 아니라 Transform 컴포넌트의 위치, 회전, 크기 값을 정의할 때도 자주 사용된다.
 
 
 
