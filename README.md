@@ -119,7 +119,36 @@ Vector3는 게임 오브젝트의 위치뿐만 아니라 Transform 컴포넌트�
 
 ---------
 ## Monobehaviour
+> Unity 엔진을 사용해 게임을 개발할 때, 스크립트를 작성하기 위해 기본적으로 상속받아야 하는 클래스
+>> Unity의 모든 스크립트는 이 'MonoBehaviour' 클래스를 기반으로 동작하며, 이를 통해 Unity 엔진과 상호작용할 수 있다.
 
+MonoBehaviour는 Unity에서 제공하는 C# 클래스 중 하나로, Unity의 게임 오브젝트에 동작을 추가할 때 사용된다.   
+Unity에서 스크립트를 작성할 때, 이 클래스를 상속받음으로써 Unity의 생명 주기 이벤트를 활용할 수 있으며, 이를 통해 게임 오브젝트의 상태를 업데이트하거나 특정 동작을 구현할 수 있다.   
+
+```C#
+using UnityEngine;
+
+public class MyScript : MonoBehaviour
+{
+    // 동작 구현
+}
+```
+
+### MonoBehaviour의 주요 기능
+Unity 엔진과의 상호작용을 돕기 위해 다양한 기능과 메서드를 제공한다. 이를 통해 게임 개발자는 복잡한 게임 로직을 구현할 수 있다.   
+* [생명 주기 메서드 - Lifecycle Methods](https://blog.naver.com/bc_pokemonmaster/223559219577)
+* Unity 이벤트 메서드
+    * OnCollisionEnter() : 충돌이 발생했을 때 호출
+    * OnTriggerEnter() : 트리거 충돌이 발생했을 때 호출
+    * OnMouseDown() : 오브젝트가 클릭되었을 때 호출
+
+### MonoBehaviour 활용 시 주의사항
+1. 스크립트 활성화/비활성화
+   * MonoBehaviour를 상속받은 스크립트는 게임 오브젝트의 활성화 상태에 따라 동작이 달라진다. 게임 오브젝트가 비활성화되면 'update()'와 같은 메서드가 호출되지 않는다. 이를 통해 불필요한 연산을 줄일 수 있다.
+2. Coroutine (코루틴)
+   * MonoBehaviour는 Coroutine을 통해 비동기 작업을 처리할 수 있게 해준다. 코루틴은 게임 루프와 별개로 실행되면서, 일정 시간 후에 동작을 수행하거나 반복 작업을 처리할 때 유용하다.
+3. 일부 경우에는 MonoBehaviour를 상속받지 않는 클래스가 필요할 수 있다.
+   * 예를 들어 단순히 데이터만을 저장하는 클래스이거나, 다른 로직을 처리하는 일반적인 C# 클래스를 구현할 경우네는 MonoBehaviour를 상속받지 않아도 된다.
 
 
 
