@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
 
     // 속도
     private float speed = 3f;
+    private float jumpPower = 5f;
+
+    Rigidbody2D rigidbody;
 
     // Input Key
 
@@ -36,6 +39,11 @@ public class Player : MonoBehaviour
         // b.position
 
         // transform.position = new Vector3(-6, 0, 0);
+
+        // GetComponent : 오브젝트가 가지고 있는 컴포넌트 중 하나를 가져옴
+        rigidbody = GetComponent<Rigidbody2D>();
+
+        // Rigidbody2D > info > velocity
     }
 
     void Update()
@@ -49,6 +57,11 @@ public class Player : MonoBehaviour
 
             transform.Translate(-speed * Time.deltaTime, 0f, 0f);
             transform.localScale = new Vector3(-5.0f, transform.localScale.y, transform.localScale.z);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpPower);
         }
 
     }
