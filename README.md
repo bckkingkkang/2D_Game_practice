@@ -1,4 +1,5 @@
 - [에셋 다운로드 및 배치, 중력 구현](https://blog.naver.com/bc_pokemonmaster/223566431376)
+- [MonoBehaviour](https://blog.naver.com/bc_pokemonmaster)
 
 # 2D_Game_practice
 
