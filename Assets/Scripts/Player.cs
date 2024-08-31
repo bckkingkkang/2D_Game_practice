@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     */
 
     // 속도
-    private float speed = 3;
+    private float speed = 3f;
 
     // Input Key
 
@@ -35,22 +35,20 @@ public class Player : MonoBehaviour
     {
         // b.position
 
-        transform.position = new Vector3(-6, 0, 0);
+        // transform.position = new Vector3(-6, 0, 0);
     }
 
     void Update()
     {
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            /*transform.position += new Vector3(speed, 0.0f, 0.0f);*/
-
             transform.Translate(speed * Time.deltaTime, 0, 0);
+            transform.localScale = new Vector3(5.0f, transform.localScale.y, transform.localScale.z);
 
         } else if (Input.GetKey(KeyCode.LeftArrow)) {
 
-            /*transform.position += new Vector3(-speed, 0.0f, 0.0f);*/
-
             transform.Translate(-speed * Time.deltaTime, 0, 0);
+            transform.localScale = new Vector3(-5.0f, transform.localScale.y, transform.localScale.z);
         }
 
     }
