@@ -42,12 +42,12 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
+            transform.Translate(speed * Time.deltaTime, 0f, 0f);
             transform.localScale = new Vector3(5.0f, transform.localScale.y, transform.localScale.z);
 
         } else if (Input.GetKey(KeyCode.LeftArrow)) {
 
-            transform.Translate(-speed * Time.deltaTime, 0, 0);
+            transform.Translate(-speed * Time.deltaTime, 0f, 0f);
             transform.localScale = new Vector3(-5.0f, transform.localScale.y, transform.localScale.z);
         }
 
