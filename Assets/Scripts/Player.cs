@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,28 +7,28 @@ public class Player : MonoBehaviour
     /*
     Transform b;
     
-    - MonoBehaviour¸¦ »ó¼Ó¹ŞÀº °æ¿ì
-      GameObject, TransformÀÌ¶ó´Â º¯¼ö¸¦ ±âº»ÀûÀ¸·Î ³»ÀçÇÑ´Ù.
+    - MonoBehaviourë¥¼ ìƒì†ë°›ì€ ê²½ìš°
+      GameObject, Transformì´ë¼ëŠ” ë³€ìˆ˜ë¥¼ ê¸°ë³¸ì ìœ¼ë¡œ ë‚´ì¬í•œë‹¤.
     */
 
-    // ¼Óµµ
+    // ì†ë„
     private float speed = 3;
 
     // Input Key
 
     /*
-        Input.GetKeyDown : Å°°¡ ÇÑ ¹ø ´­·ÈÀ» °æ¿ì
-        Input.GetKey() : Å°°¡ ´­·ÁÀÖ´Â µ¿¾È
-        Input.GetKeyUp : Å°°¡ ¶¼¾îÁø °æ¿ì
+        Input.GetKeyDown : í‚¤ê°€ í•œ ë²ˆ ëˆŒë ¸ì„ ê²½ìš°
+        Input.GetKey() : í‚¤ê°€ ëˆŒë ¤ìˆëŠ” ë™ì•ˆ
+        Input.GetKeyUp : í‚¤ê°€ ë–¼ì–´ì§„ ê²½ìš°
 
-        Input.MouseButtonDown : ¸¶¿ì½º°¡ ÇÑ ¹ø ´­·ÈÀ» °æ¿ì
-        Input.MouseButton : ¸¶¿ì½º°¡ ´­·ÁÀÖ´Â µ¿¾È
-        Input.MouseButtonUp : ¸¶¿ì½º°¡ ´­·È´Ù°¡ ¶¼¾îÁø °æ¿ì
+        Input.MouseButtonDown : ë§ˆìš°ìŠ¤ê°€ í•œ ë²ˆ ëˆŒë ¸ì„ ê²½ìš°
+        Input.MouseButton : ë§ˆìš°ìŠ¤ê°€ ëˆŒë ¤ìˆëŠ” ë™ì•ˆ
+        Input.MouseButtonUp : ë§ˆìš°ìŠ¤ê°€ ëˆŒë ¸ë‹¤ê°€ ë–¼ì–´ì§„ ê²½ìš°
     */
 
-    // Translate(x, y, z) : Object¸¦ x, y, z ¸¸Å­ ÀÌµ¿½ÃÅ²´Ù.
-    // Time.deltaTime : 1ÃÊ¸¦ ÇÁ·¹ÀÓÀ¸·Î ³ª´« °ª
-    // ¸ğµç ÄÄÇ»ÅÍ ÇÁ·¹ÀÓ¿¡¼­ µ¿ÀÏÇÑ ¼³Á¤ °ªÀ¸·Î µ¿ÀÛÇÏ±â À§ÇØ¼­ 
+    // Translate(x, y, z) : Objectë¥¼ x, y, z ë§Œí¼ ì´ë™ì‹œí‚¨ë‹¤.
+    // Time.deltaTime : 1ì´ˆë¥¼ í”„ë ˆì„ìœ¼ë¡œ ë‚˜ëˆˆ ê°’
+    // ëª¨ë“  ì»´í“¨í„° í”„ë ˆì„ì—ì„œ ë™ì¼í•œ ì„¤ì • ê°’ìœ¼ë¡œ ë™ì‘í•˜ê¸° ìœ„í•´ì„œ 
 
 
     void Start()
