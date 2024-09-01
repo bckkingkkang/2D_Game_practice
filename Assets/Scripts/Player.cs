@@ -50,13 +50,15 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(speed * Time.deltaTime, 0f, 0f);
-            transform.localScale = new Vector3(5.0f, transform.localScale.y, transform.localScale.z);
+            transform.Translate(speed * Time.deltaTime, 0f, 0f, Space.World);
+            // transform.localScale = new Vector3(5.0f, transform.localScale.y, transform.localScale.z);
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
 
         } else if (Input.GetKey(KeyCode.LeftArrow)) {
 
-            transform.Translate(-speed * Time.deltaTime, 0f, 0f);
-            transform.localScale = new Vector3(-5.0f, transform.localScale.y, transform.localScale.z);
+            transform.Translate(-speed * Time.deltaTime, 0f, 0f, Space.World);
+            // transform.localScale = new Vector3(-5.0f, transform.localScale.y, transform.localScale.z);
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
