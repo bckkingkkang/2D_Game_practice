@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         // b.position
-
         // transform.position = new Vector3(-6, 0, 0);
 
         // GetComponent : 오브젝트가 가지고 있는 컴포넌트 중 하나를 가져옴
@@ -52,15 +51,25 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(speed * Time.deltaTime, 0f, 0f, Space.World);
+            //transform.Translate(speed * Time.deltaTime, 0f, 0f, Space.World);
+            rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
+
             // transform.localScale = new Vector3(5.0f, transform.localScale.y, transform.localScale.z);
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            // transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            GetComponent<SpriteRenderer>().flipX = false;
 
         } else if (Input.GetKey(KeyCode.LeftArrow)) {
 
-            transform.Translate(-speed * Time.deltaTime, 0f, 0f, Space.World);
+            //transform.Translate(-speed * Time.deltaTime, 0f, 0f, Space.World);
+            rigidbody.velocity = new Vector2(-speed, rigidbody.velocity.y);
+            
             // transform.localScale = new Vector3(-5.0f, transform.localScale.y, transform.localScale.z);
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            // transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            GetComponent <SpriteRenderer>().flipX = true;
+        } else
+        {
+            // 방향키 버튼에서 손을 뗀 경우 미끄러지지 않도록
+            rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isJump == false)
