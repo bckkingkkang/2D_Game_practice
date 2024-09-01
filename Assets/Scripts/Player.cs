@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rigidbody;
 
+    bool isJump = false;
+
     // Input Key
 
     /*
@@ -61,9 +63,15 @@ public class Player : MonoBehaviour
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isJump == false)
         {
+            isJump = true;
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpPower);
+        }
+
+        if(rigidbody.velocity.y == 0f )
+        {
+            isJump = false;
         }
 
     }
