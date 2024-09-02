@@ -1,6 +1,7 @@
 - [에셋 다운로드 및 배치, 중력 구현](https://blog.naver.com/bc_pokemonmaster/223566431376)
 - [MonoBehaviour](https://blog.naver.com/bc_pokemonmaster)
 - [Player 이동](https://blog.naver.com/bc_pokemonmaster/223567945263)
+- [Player 점프](https://blog.naver.com/bc_pokemonmaster/223569781918)
 
 # 2D_Game_practice
 
