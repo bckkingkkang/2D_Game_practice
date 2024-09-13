@@ -47,16 +47,25 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.name == "Off")
+        {
+            Debug.Log(collision.gameObject.name + " : ENTER");
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.name == "Off")
+        {
+            Debug.Log(collision.gameObject.name + " : STAY");
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.name == "Off")
+        {
+            Debug.Log(collision.gameObject.name + " : EXIT");
+        }
     }
 }
