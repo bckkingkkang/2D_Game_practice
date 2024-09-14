@@ -1818,7 +1818,7 @@ GameObject:
   - component: {fileID: 1721577552}
   - component: {fileID: 1721577553}
   m_Layer: 0
-  m_Name: Jump (32x32)
+  m_Name: character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
