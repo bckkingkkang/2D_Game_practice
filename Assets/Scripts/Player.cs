@@ -2,6 +2,8 @@
 
 public class Player : MonoBehaviour
 {
+    public int HP = 3;
+
     private float speed = 3f;
     private float jumpPower = 5f;
 
@@ -47,15 +49,21 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Off")
+        if(collision.gameObject.name == "Jump")
         {
             Debug.Log(collision.gameObject.name + " : ENTER");
+        }
+
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            Debug.Log("방해물 닿음");
+            HP--;
         }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Off")
+        if (collision.gameObject.name == "Jump")
         {
             Debug.Log(collision.gameObject.name + " : STAY");
         }
@@ -63,7 +71,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Off")
+        if (collision.gameObject.name == "Jump")
         {
             Debug.Log(collision.gameObject.name + " : EXIT");
         }
