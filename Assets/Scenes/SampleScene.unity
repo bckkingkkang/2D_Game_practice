@@ -609,8 +609,8 @@ GameObject:
   - component: {fileID: 1198274309}
   - component: {fileID: 1198274311}
   m_Layer: 0
-  m_Name: On (16x32)_0
-  m_TagString: Untagged
+  m_Name: Fire
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,7 +714,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.07674538}
+  m_Offset: {x: 0, y: 0.0036891922}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -725,7 +725,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16650923}
+  m_Size: {x: 0.16, y: 0.3273784}
   m_EdgeRadius: 0
 --- !u!1 &1378086333
 GameObject:
@@ -1817,6 +1817,7 @@ GameObject:
   - component: {fileID: 1721577551}
   - component: {fileID: 1721577552}
   - component: {fileID: 1721577553}
+  - component: {fileID: 1721577554}
   m_Layer: 0
   m_Name: character
   m_TagString: Untagged
@@ -1975,6 +1976,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b23b9bce8b4284894b3fdfcca0f1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP: 3
+  Hit_Prefab: {fileID: 4120829117700044555, guid: 2c820889647515949843e5beec300adb, type: 3}
+--- !u!95 &1721577554
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721577548}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02f5524c6c4466b46a062fcd3ef04a03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1808283318
 GameObject:
   m_ObjectHideFlags: 0

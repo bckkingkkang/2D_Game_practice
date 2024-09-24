@@ -2,7 +2,7 @@
 
 public class Player : MonoBehaviour
 {
-    public int HP = 3;
+    public int HP = 5;
 
     private float speed = 3f;
     private float jumpPower = 5f;
@@ -11,9 +11,13 @@ public class Player : MonoBehaviour
 
     bool isJump = false;
 
+    public GameObject Hit_Prefab;
+    Animator anim;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -58,6 +62,9 @@ public class Player : MonoBehaviour
         {
             Debug.Log("방해물 닿음");
             HP--;
+            GameObject go = Instantiate(Hit_Prefab, transform.position, Quaternion.identity);
+            Destroy(go, 1.0f);
+            anim.SetTrigger("isHit");
         }
     }
 
