@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,10 +15,13 @@ public class Player : MonoBehaviour
     public GameObject Hit_Prefab;
     Animator anim;
 
+    public Text HP_Text;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        HP_Text.text = "HP : " + HP.ToString();
     }
 
     void Update()
@@ -65,6 +69,9 @@ public class Player : MonoBehaviour
             GameObject go = Instantiate(Hit_Prefab, transform.position, Quaternion.identity);
             Destroy(go, 1.0f);
             anim.SetTrigger("isHit");
+
+            // 화면 좌상단에 HP 표시
+            HP_Text.text = "HP : " + HP.ToString();
         }
     }
 
