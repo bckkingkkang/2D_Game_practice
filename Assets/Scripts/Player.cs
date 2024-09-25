@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     public Text HP_Text;
 
+    public GameObject GameOverView;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -72,6 +74,11 @@ public class Player : MonoBehaviour
 
             // 화면 좌상단에 HP 표시
             HP_Text.text = "HP : " + HP.ToString();
+
+            if(HP == 0)
+            {
+                GameOverView.SetActive(true);
+            }
         }
     }
 
