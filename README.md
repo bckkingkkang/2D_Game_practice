@@ -4,6 +4,9 @@
 - [Player 점프](https://blog.naver.com/bc_pokemonmaster/223569781918)
 - [충돌 감지 이벤트](https://blog.naver.com/bc_pokemonmaster/223583642200)
 
+- [Prefab(프리팹)](https://blog.naver.com/bc_pokemonmaster/223595481156)
+- [Instantiate & Destroy](https://blog.naver.com/bc_pokemonmaster/223595488115)
+
 ![1](https://github.com/user-attachments/assets/f9925f3f-e132-4d5d-af7d-81d66d5dc766)
 
 
