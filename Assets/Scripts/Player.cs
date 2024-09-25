@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     Animator anim;
 
     public Text HP_Text;
+    public Slider HP_Slider;
+    int MaxHp;
+    
 
     public GameObject GameOverView;
 
@@ -33,6 +36,9 @@ public class Player : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         HP_Text.text = "HP : " + HP.ToString();
+        MaxHp = HP;
+        HP_Slider.value = (float)HP / (float)MaxHp;
+
     }
 
     void Update()
@@ -85,8 +91,9 @@ public class Player : MonoBehaviour
 
             // 화면 좌상단에 HP 표시
             HP_Text.text = "HP : " + HP.ToString();
+            HP_Slider.value = (float)HP / (float)MaxHp;
 
-            if(HP == 0)
+            if (HP == 0)
             {
                 isOver = true;
                 GameOverView.SetActive(true);
