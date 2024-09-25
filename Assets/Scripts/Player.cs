@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,14 @@ public class Player : MonoBehaviour
 
     public GameObject GameOverView;
 
+    bool isOver = false;
+
+    // Retry 버튼 클릭 시
+    public void RetryBtn()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -28,6 +37,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (isOver) return;
+
         if(Input.GetKey(KeyCode.RightArrow))
         {
             rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
@@ -77,6 +88,7 @@ public class Player : MonoBehaviour
 
             if(HP == 0)
             {
+                isOver = true;
                 GameOverView.SetActive(true);
             }
         }
