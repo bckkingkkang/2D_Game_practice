@@ -43,35 +43,80 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (isOver) return;
-
-        if(Input.GetKey(KeyCode.RightArrow))
+        if (isOver)
+        {
+            rigidbody.velocity = Vector2.zero;
+            return;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
-
             GetComponent<SpriteRenderer>().flipX = false;
 
-        } else if (Input.GetKey(KeyCode.LeftArrow)) {
+            if (isJump == false)
+            {
+                AnimatorChange("isRUN");
+                //.SetBool("isIDLE", false);
+                //anim.SetBool("isRUN", true);
+            }
 
+
+        } else if (Input.GetKey(KeyCode.LeftArrow)) {
             rigidbody.velocity = new Vector2(-speed, rigidbody.velocity.y);
-            
-            GetComponent <SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = true;
+
+            if (isJump == false)
+            {
+                AnimatorChange("isRUN");
+
+                //anim.SetBool("isIDLE", false);
+                //anim.SetBool("isRUN", true);
+            }
+
         } else
         {
             rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
+
+            if (isJump == false)
+            {
+                AnimatorChange("isIDLE");
+
+                //anim.SetBool("isIDLE", true);
+                //anim.SetBool("isRUN", false);
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isJump == false)
         {
             isJump = true;
+
+            AnimatorChange("isJUMP");
+            //anim.SetTrigger("isJUMP");
+            //anim.SetBool("isIDLE", false);
+            //anim.SetBool("isRUN", false);
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpPower);
         }
 
-        if(rigidbody.velocity.y == 0f )
+        if (rigidbody.velocity.y == 0f)
         {
             isJump = false;
         }
 
+    }
+
+    private void AnimatorChange(string temp)
+    {
+        anim.SetBool("isIDLE", false);
+        anim.SetBool("isRUN", false);
+
+        anim.SetBool(temp, true);
+
+        if(temp == "isJUMP")
+        {
+            anim.SetTrigger("isJUMP");
+            return;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
