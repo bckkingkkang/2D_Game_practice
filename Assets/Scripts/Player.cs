@@ -25,11 +25,7 @@ public class Player : MonoBehaviour
 
     bool isOver = false;
 
-    // Retry 버튼 클릭 시
-    public void RetryBtn()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
+    
 
     void Start()
     {
@@ -43,11 +39,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (isOver)
+        /*if (isOver)
         {
-            rigidbody.velocity = Vector2.zero;
+            // 캐릭터가 gameover 되었을 때 공중에 있는 경우 미끄러지지 않음
+            //rigidbody.velocity = Vector2.zero;
             return;
-        }
+        }*/
         if (Input.GetKey(KeyCode.RightArrow))
         {
             rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
@@ -142,6 +139,8 @@ public class Player : MonoBehaviour
             {
                 isOver = true;
                 GameOverView.SetActive(true);
+
+                Destroy(gameObject);
             }
         }
     }
