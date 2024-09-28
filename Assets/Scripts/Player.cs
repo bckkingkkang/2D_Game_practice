@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     bool isOver = false;
 
+    public Animator TramAnimation;
+
     
 
     void Start()
@@ -160,6 +162,17 @@ public class Player : MonoBehaviour
         if (collision.gameObject.name == "Jump")
         {
             //Debug.Log(collision.gameObject.name + " : EXIT");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Tram")
+        {
+            isJump = true;
+            TramAnimation.SetTrigger("isJump");
+            AnimatorChange("isJUMP");
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpPower*2);
         }
     }
 }
