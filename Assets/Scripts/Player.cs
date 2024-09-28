@@ -178,7 +178,6 @@ public class Player : MonoBehaviour
 
         if(collision.gameObject.tag == "End")
         {
-            isOver = true;
             GameClearView.SetActive(true);
         }
     }
