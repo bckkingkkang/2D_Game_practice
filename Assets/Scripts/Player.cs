@@ -93,6 +93,8 @@ public class Player : MonoBehaviour
             //anim.SetBool("isIDLE", false);
             //anim.SetBool("isRUN", false);
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpPower);
+
+            //GetComponent<SpriteRenderer>().sprite = JumpSprite;
         }
 
         if (rigidbody.velocity.y == 0f)
@@ -120,12 +122,12 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.name == "Jump")
         {
-            Debug.Log(collision.gameObject.name + " : ENTER");
+            //Debug.Log(collision.gameObject.name + " : ENTER");
         }
 
         if(collision.gameObject.tag == "Obstacle")
         {
-            Debug.Log("방해물 닿음");
+            //Debug.Log("방해물 닿음");
             HP--;
             GameObject go = Instantiate(Hit_Prefab, transform.position, Quaternion.identity);
             Destroy(go, 1.0f);
@@ -149,7 +151,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.name == "Jump")
         {
-            Debug.Log(collision.gameObject.name + " : STAY");
+            //Debug.Log(collision.gameObject.name + " : STAY");
         }
     }
 
@@ -157,7 +159,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.name == "Jump")
         {
-            Debug.Log(collision.gameObject.name + " : EXIT");
+            //Debug.Log(collision.gameObject.name + " : EXIT");
         }
     }
 }
