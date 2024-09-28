@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     
 
     public GameObject GameOverView;
+    public GameObject GameClearView;
 
     bool isOver = false;
 
@@ -173,6 +174,12 @@ public class Player : MonoBehaviour
             TramAnimation.SetTrigger("isJump");
             AnimatorChange("isJUMP");
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpPower*2);
+        }
+
+        if(collision.gameObject.tag == "End")
+        {
+            isOver = true;
+            GameClearView.SetActive(true);
         }
     }
 }
