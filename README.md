@@ -9,6 +9,9 @@
 
 ![1](https://github.com/user-attachments/assets/f9925f3f-e132-4d5d-af7d-81d66d5dc766)
 
+* DOTween
+* Lerp
+
 
 # 2D_Game_practice
 
